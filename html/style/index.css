@@ -1,0 +1,73 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+* {
+    -webkit-user-drag: none;
+}
+.bg {
+    /* width: 100%;
+    height: 100%; */
+    background-color: #1d2158;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+}
+.b_left_text {
+    font-size: 30pt;
+    color: #c9f5ff;
+    text-shadow: 0 0 3px #0c0b11;
+    background-color: #7bbdf3;
+    border-radius: 20px;
+    box-shadow: 0 0 5px #0c0b11;
+}
+.b_left {
+    background-color: cornflowerblue;
+}
+.b_right {
+    background-color: #c1c1da;
+    /* height: 100%; */
+    position: fixed;
+    height: auto;
+    width: 450px;
+    padding: 10px;
+    box-shadow: 0 0 10px #0c0b11;
+    border-radius: 5px;
+    transition: all 0.3s;
+    /* -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s; */
+}
+.connect_diag {
+    position: fixed;
+    width: 500px;
+    height: 200px;
+    background-color: #393742d8;
+    border-radius: 15px;
+    border: 1px solid #a9ffff;
+    padding: 10px;
+    color: white;
+}
+.diag_mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    background-color: #77738d80;
+}
+.diag_show {
+    /* user-select: auto; */
+    pointer-events: all;
+    opacity: 100%;
+}
+.diag_hide {
+    /* user-select: none; */
+    pointer-events: none;
+    opacity: 0%;
+}
+.diag_an {
+    transition: all 0.3s;
+}

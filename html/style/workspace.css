@@ -1,0 +1,150 @@
+* {
+    -webkit-user-drag: none;
+}
+.bg {
+    /* width: 100%;
+    height: 100%; */
+    background-color: #292929;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+}
+.menu_bar {
+    background-color: #474747;
+    position: fixed;
+    height: 30px;
+    width: 100%;
+    box-shadow: 0 0 5px #181818;
+}
+.menu_bar_icon {
+    width: 30px;
+    height: 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+    background-image: url(../image/noder_dark.png);
+    float: left;
+}
+.menu_bar_item {
+    display: inline-block;
+    font-size: medium;
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 5px 0px;
+    background-color: #474747;
+    transition: all 0.3s;
+    color: #c7c7c7;
+    box-sizing: border-box;
+    border-bottom: 0px solid #c2e2ff00;
+}
+.menu_bar_item_active {
+    border-bottom: 1px solid #c2e2ff;
+}
+.menu_bar_item:hover {
+    background-color: #727272;
+}
+.menu_bar_user {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    background-size: cover;
+    float: right;
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    font-size: 25px;
+    text-align: center;
+    transition: all 0.3s;
+    background-color: #474747;
+    color: #c7c7c7;
+}
+.menu_bar_user:hover {
+    background-color: #727272;
+}
+.menu_bar_menu {
+    background-color: #5e5e5e;
+    /* box-shadow: 0 0 5px #181818; */
+    border: 1px solid#c2e2ff;
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    height: 150px;
+    opacity: 100%;
+    pointer-events: all;
+    transition: all 0.3s;
+    padding: 10px;
+    border-radius: 0px 0px 5px 5px;
+    /* z-index: -1; */
+    opacity: 80%;
+    top: 30px;
+    overflow: hidden;
+}
+.menu_bar_menu_hide {
+    opacity: 0%;
+    pointer-events: none;
+    height: 0px;
+}
+
+.menu_cell {
+    height: 80px;
+    width: calc(50% - 3px);
+    background-color: #56585a;
+    border: 1px solid#c2e2ff;
+    box-shadow: 0 0 3px #181818;
+    box-sizing: border-box;
+    border-radius: 5px;
+    padding: 5px;
+    display: block;
+    margin-bottom: 5px;
+    text-align: justify;
+    text-justify: newspaper;
+    word-break: break-all;
+    transition: all 0.3s;
+}
+.menu_cell:hover {
+    background-color: #333638;
+}
+.menu_cell dt {
+    text-align: center;
+    color: #f0daff;
+}
+.menu_cell dt span {
+    color: #dbe4ff;
+}
+.menu_cell dd {
+    text-align: center;
+    line-height: 15pt;
+    color: #beb0c7;
+}
+.menu_cell_left {
+    /* float: left; */
+}
+.menu_cell_right {
+    /* float: right; */
+}
+.menu_cell_hide {
+    visibility: hidden;
+}
+.workspace {
+    width: 100%;
+    height: 100%;
+    margin-top: 30px;
+    padding: 3px;
+    position: initial;
+}
+.menu_bar_menu_mask {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: #00000045;
+    transition: all 0.3s;
+    z-index: -2;
+}
+.menu_bar_dd_menu {
+
+}

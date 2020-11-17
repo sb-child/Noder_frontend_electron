@@ -1,0 +1,22 @@
+{
+  "name": "noder-frontend",
+  "version": "1.0.0",
+  "description": "noder frontend",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "sbchild",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "electron": "^10.1.5"
+  },
+  "dependencies": {
+    "@neos21/bootstrap3-glyphicons": "^1.0.4",
+    "bootstrap": "^4.5.3",
+    "jquery": "^3.5.1",
+    "popper.js": "^1.16.1"
+  }
+}
