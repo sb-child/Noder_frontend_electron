@@ -3,4 +3,5 @@
 It is a Noder client.  
 **todo:**  
 > - [ ] Redesign the user interface
+> - [ ] multi languages support
 <!-- > - [ ]  -->

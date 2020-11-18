@@ -48,9 +48,11 @@
                         placeholder="例子:37321"
                     />
                 </div>
-                <div class="row clearfix" id="btns_1"></div>
                 <br />
-                <div class="panel-group" id="srv_panel">
+                <div class="btn-group my_btn_group" id="btns_1"></div>
+                <br />
+
+                <!-- <div class="panel-group" id="srv_panel">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <a
@@ -85,7 +87,7 @@
                             <div class="panel-body">todo</div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="diag_hide diag_an" id="conn_diag">
                     <div class="diag_mask"></div>
                     <div class="connect_diag" id="connect_diag">
@@ -115,20 +117,21 @@
         <script>
             [
                 ["连接", "btn-success", "connect_btn"],
-                ["收藏", "btn-info", "collect_btn"],
+                ["添加到收藏", "btn-info", "add_collect_btn"],
+                ["收藏夹", "btn-default", "collects_btn"],
                 ["清空", "btn-danger", "clear_btn"],
             ].forEach((element) => {
                 $("#btns_1").html(
                     $("#btns_1").html() +
-                        '<div class="col-md-4 column"><button type="button" ' +
-                        'class="btn btn-default btn-block btn-primary ' +
+                        '<button type="button" ' +
+                        'class="btn btn-default btn-primary ' +
                         element[1] +
                         '"' +
                         'id="' +
                         element[2] +
                         '">' +
                         element[0] +
-                        "</button></div>"
+                        "</button>"
                 );
             });
         </script>

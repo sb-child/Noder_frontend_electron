@@ -8,14 +8,14 @@ function createWindow() {
             nodeIntegration: true,
             enableRemoteModule: true,
         },
-        minHeight: 400,
-        minWidth: 500,
+        minHeight: 100,
+        minWidth: 100,
         center: true,
     });
     // win.title = "Noder Client"
     win.setMenu(null);
-    // win.loadFile("html/index.html");
-    win.loadFile("html/workspace.html");
+    win.loadFile("html/index.html");
+    // win.loadFile("html/workspace.html");
     win.webContents.openDevTools();
 }
 

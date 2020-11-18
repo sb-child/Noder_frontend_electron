@@ -1,14 +1,21 @@
 function set_board_pos() {
-    var bd = document.getElementById("bg");
+    var bd = document.getElementById("table_right");
     var w = bd.clientWidth;
     var h = bd.clientHeight;
-    ["table_right", "connect_diag"].forEach((element) => {
-        var tb = document.getElementById(element);
-        var w1 = tb.clientWidth;
-        var h1 = tb.clientHeight;
-        $("#" + element).css("top", h / 2 - h1 / 2);
-        $("#" + element).css("left", w / 2 - w1 / 2);
-    });
+    // ["connect_diag"].forEach((element) => {
+    //     var tb = document.getElementById(element);
+    //     var w1 = tb.clientWidth;
+    //     var h1 = tb.clientHeight;
+    //     $("#" + element).css("top", 10);
+    //     $("#" + element).css("left", 10);
+    //     // $("#" + element).css("bottom", h1 - 20);
+    //     // $("#" + element).css("right", w1 - 20);
+    // });
+    const { remote } = require("electron");
+    thiswd = remote.getCurrentWindow();
+    // var w = innerWidth;
+    // var h = innerHeight;
+    thiswd.setSize(w, h);
 }
 function set_diag_title(t) {
     $("#diag_title").text(t);
@@ -90,23 +97,37 @@ function connect_to_server(ip, port) {
     };
 }
 $(function () {
+    const { remote } = require("electron");
+    thiswd = remote.getCurrentWindow();
+    thiswd.resizable = true;
     set_board_pos();
-    window.onresize = () => {
-        set_board_pos();
-    };
-    var timer = setInterval(() => {
-        set_board_pos();
-    }, 200);
-    $("#connect_btn").on("click", () => {
-        set_diag_status("show");
-        set_diag_title("连接中...");
-        c_ip = $("#inp_server_ip").val();
-        c_port = $("#inp_server_port").val();
-        set_diag_text("连接到 " + c_ip + ":" + c_port);
-        connect_to_server(c_ip, c_port);
+    // window.onresize = () => {
+    //     set_board_pos();
+    // };
+    thiswd.resizable = false;
+    // var timer = setInterval(() => {
+    //     set_board_pos();
+    // }, 200);
+    $("button").on("click", (jq) => {
+        switch (jq.target.id) {
+            case "connect_btn":
+                set_diag_status("show");
+                set_diag_title("连接中...");
+                c_ip = $("#inp_server_ip").val();
+                c_port = $("#inp_server_port").val();
+                set_diag_text("连接到 " + c_ip + ":" + c_port);
+                connect_to_server(c_ip, c_port);
+                break;
+            case "clear_btn":
+                $("#inp_server_ip").val("");
+                $("#inp_server_port").val("");
+                break;
+            default:
+                break;
+        }
     });
-    $("#clear_btn").on("click", () => {
-        $("#inp_server_ip").val("");
-        $("#inp_server_port").val("");
-    });
+    // $("#connect_btn").on("click", () => {});
+    // $("#clear_btn").on("click", () => {});
+    $("input").css("background", "rgb(34, 34, 34)");
+    $("input").css("color", "rgb(226, 226, 226)");
 });

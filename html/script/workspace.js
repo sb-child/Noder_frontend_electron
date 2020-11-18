@@ -136,6 +136,10 @@ function update_menu() {
     }
 }
 $(() => {
+    const { remote } = require("electron");
+    thiswd = remote.getCurrentWindow();
+    thiswd.resizable = true;
+
     set_tbar_items(ui_toolbar_items);
     update_menu();
     var timer = setInterval(() => {
