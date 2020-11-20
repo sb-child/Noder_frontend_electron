@@ -1,4 +1,5 @@
 const { app, BrowserWindow } = require("electron");
+var io = require("socket.io");
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -18,6 +19,8 @@ function createWindow() {
     // win.loadFile("html/workspace.html");
     win.webContents.openDevTools();
 }
+
+io.Server()
 
 app.whenReady().then(createWindow);
 

@@ -121,12 +121,6 @@
     line-height: 15pt;
     color: #beb0c7;
 }
-.menu_cell_left {
-    /* float: left; */
-}
-.menu_cell_right {
-    /* float: right; */
-}
 .menu_cell_hide {
     visibility: hidden;
 }
@@ -144,7 +138,4 @@
     background-color: #00000045;
     transition: all 0.3s;
     z-index: -2;
-}
-.menu_bar_dd_menu {
-
 }
