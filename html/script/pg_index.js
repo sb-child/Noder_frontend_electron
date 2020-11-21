@@ -97,26 +97,81 @@ function connect_to_server(ip, port) {
     };
 }
 $(function () {
+    // --- import and config ---
+    var elementResizeDetectorMaker = require("element-resize-detector");
     const { remote } = require("electron");
+    if (__lang_defined != true) {
+        throw Error("language.js is not imported.");
+    }
+    var erd = elementResizeDetectorMaker({
+        strategy: "scroll",
+    });
     thiswd = remote.getCurrentWindow();
-    thiswd.resizable = true;
-    set_board_pos();
-    // window.onresize = () => {
-    //     set_board_pos();
-    // };
-    thiswd.resizable = false;
-    // var timer = setInterval(() => {
-    //     set_board_pos();
-    // }, 200);
-    $("button").on("click", (jq) => {
+    var _resize_event = function () {
+        thiswd.resizable = true;
+        set_board_pos();
+        thiswd.resizable = false;
+    };
+    _resize_event();
+    erd.listenTo(document.getElementById("table_right"), function (element) {
+        _resize_event();
+    });
+    // --- END import and config ---
+    // --- special settings ---
+    // $("input").css("background", "rgb(34, 34, 34)");
+    // $("input").css("color", "rgb(226, 226, 226)");
+    // --- END special settings ---
+    // --- language settings ---
+    // _lang_SetLang("en_US");
+    _lang_SetLang("zh_CN");
+    var _temp1 = [
+        _lang_GetLang("login_connect"),
+        _lang_GetLang("login_to-collect"),
+        _lang_GetLang("login_collects"),
+        _lang_GetLang("login_clear-table"),
+    ];
+    [
+        [_temp1[0], "btn-success", "connect_btn"],
+        [_temp1[1], "btn-info", "add_collect_btn"],
+        [_temp1[2], "btn-default", "collects_btn"],
+        [_temp1[3], "btn-danger", "clear_btn"],
+    ].forEach((element) => {
+        $("#btns_1").html(
+            $("#btns_1").html() +
+                '<button type="button" ' +
+                'class="btn btn-default btn-primary _btn_group_1 ' +
+                element[1] +
+                '"' +
+                'id="' +
+                element[2] +
+                '">' +
+                element[0] +
+                "</button>"
+        );
+    });
+    delete _temp1;
+    $("#_lang_srv-hostname").text(_lang_GetLang("login_srv-hostname"));
+    $("#_lang_srv-port").text(_lang_GetLang("login_srv-port"));
+    $("#inp_server_ip").prop(
+        "placeholder",
+        _lang_GetLang("login_input-srv-ip")
+    );
+    $("#inp_server_port").prop(
+        "placeholder",
+        _lang_GetLang("login_input-srv-port")
+    );
+    // --- END language settings ---
+    // --- events ---
+    $("._btn_group_1").on("click", (jq) => {
+        $("._btn_group_1").prop("disabled", true);
         switch (jq.target.id) {
             case "connect_btn":
-                set_diag_status("show");
-                set_diag_title("连接中...");
-                c_ip = $("#inp_server_ip").val();
-                c_port = $("#inp_server_port").val();
-                set_diag_text("连接到 " + c_ip + ":" + c_port);
-                connect_to_server(c_ip, c_port);
+                // set_diag_status("show");
+                // set_diag_title("连接中...");
+                // c_ip = $("#inp_server_ip").val();
+                // c_port = $("#inp_server_port").val();
+                // set_diag_text("连接到 " + c_ip + ":" + c_port);
+                // connect_to_server(c_ip, c_port);
                 break;
             case "clear_btn":
                 $("#inp_server_ip").val("");
@@ -126,8 +181,5 @@ $(function () {
                 break;
         }
     });
-    // $("#connect_btn").on("click", () => {});
-    // $("#clear_btn").on("click", () => {});
-    $("input").css("background", "rgb(34, 34, 34)");
-    $("input").css("color", "rgb(226, 226, 226)");
+    // --- END events ---
 });

@@ -3,5 +3,6 @@
 It is a Noder client.  
 **todo:**  
 > - [ ] Redesign the user interface
-> - [ ] multi languages support
+> - [x] Multi languages support
+> - [ ] Use `socket.io` to connect the backend
 <!-- > - [ ]  -->

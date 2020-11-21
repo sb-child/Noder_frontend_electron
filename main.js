@@ -1,5 +1,7 @@
 const { app, BrowserWindow } = require("electron");
-var io = require("socket.io");
+const io = require("socket.io-client");
+const lang = require("./language/lang")
+
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -20,7 +22,8 @@ function createWindow() {
     win.webContents.openDevTools();
 }
 
-io.Server()
+var cli = undefined;
+var nowLang = "zh_CN";
 
 app.whenReady().then(createWindow);
 
@@ -35,18 +38,21 @@ app.on("activate", () => {
         createWindow();
     }
 });
-const remoteObj = {
-    name: "remote",
+const setLang = (lang_name) => {
+    nowLang = lang_name;
+};
+const getNowLang = () => {
+    return nowLang;
+};
+const getLang = (lang_index) => {
+    var ln = new lang.Lang(nowLang);
+    return ln.getLang(lang_index);
+};
+const getLangList = () => {
+    return lang.getLangNames();
 };
 
-const getRemoteObject = (event) => {
-    // 一秒后修改 remoteObj.name 的值
-    // 并通知渲染进程重新打印一遍 remoteObj 对象
-    setTimeout(() => {
-        remoteObj.name = "modified name";
-        win.webContents.send("modified");
-    }, 1000);
-
-    event.returnValue = remoteObj;
-};
-app.getRemoteObject = getRemoteObject;
+app._io_lang_SetLang = setLang;
+app._io_lang_GetNowLang = getNowLang;
+app._io_lang_GetLang = getLang;
+app._io_lang_GetLangList = getLangList;

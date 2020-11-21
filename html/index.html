@@ -20,74 +20,31 @@
         <link href="style/index.css" rel="stylesheet" />
     </head>
     <body id="body">
-        <!-- <div class="b_left">
-                <div class="nd_icon"></div>
-                <svg></svg>
-            </div>
-            <div class="b_right"></div> -->
         <div class="bg" id="bg">
             <div class="b_right" id="table_right">
-                <div class="text-center b_left_text">Noder 客户端</div>
+                <!-- <div class="text-center b_left_text">Noder 客户端</div> -->
                 <div class="form-group">
-                    <label for="inp_server_ip">服务端域名或IP地址</label
+                    <label for="inp_server_ip" id="_lang_srv-hostname"></label
                     ><input
                         type="text"
                         class="form-control"
                         id="inp_server_ip"
                         autofocus="true"
-                        placeholder="例子:127.0.0.1"
+                        placeholder=""
                     />
                 </div>
                 <div class="form-group">
-                    <label for="inp_server_port">服务端端口号</label
+                    <label for="inp_server_port" id="_lang_srv-port"></label
                     ><input
                         type="number"
                         class="form-control"
                         id="inp_server_port"
                         autofocus="true"
-                        placeholder="例子:37321"
+                        placeholder=""
                     />
                 </div>
                 <br />
                 <div class="btn-group my_btn_group" id="btns_1"></div>
-                <br />
-
-                <!-- <div class="panel-group" id="srv_panel">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a
-                                class="panel-title collapsed"
-                                data-toggle="collapse"
-                                data-parent="#srv_panel"
-                                href="#srv_panel_history"
-                                >最近连接</a
-                            >
-                        </div>
-                        <div
-                            id="srv_panel_history"
-                            class="panel-collapse collapse"
-                        >
-                            <div class="panel-body">todo</div>
-                        </div>
-                    </div>
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <a
-                                class="panel-title"
-                                data-toggle="collapse"
-                                data-parent="#srv_panel"
-                                href="#srv_panel_collection"
-                                >收藏</a
-                            >
-                        </div>
-                        <div
-                            id="srv_panel_collection"
-                            class="panel-collapse collapse"
-                        >
-                            <div class="panel-body">todo</div>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="diag_hide diag_an" id="conn_diag">
                     <div class="diag_mask"></div>
                     <div class="connect_diag" id="connect_diag">
@@ -97,45 +54,24 @@
                 </div>
             </div>
         </div>
+
+        <!-- end -->
         <script>
             if (typeof module === "object") {
                 window.module = module;
                 module = undefined;
             }
         </script>
-
         <script>
             require("popper.js");
             window.$ = window.jQuery = require("jquery");
             require("bootstrap");
         </script>
-        <!-- <script src="static/jquery-3.5.1.min.js"></script> -->
-
         <script>
             if (window.module) module = window.module;
         </script>
-        <script>
-            [
-                ["连接", "btn-success", "connect_btn"],
-                ["添加到收藏", "btn-info", "add_collect_btn"],
-                ["收藏夹", "btn-default", "collects_btn"],
-                ["清空", "btn-danger", "clear_btn"],
-            ].forEach((element) => {
-                $("#btns_1").html(
-                    $("#btns_1").html() +
-                        '<button type="button" ' +
-                        'class="btn btn-default btn-primary ' +
-                        element[1] +
-                        '"' +
-                        'id="' +
-                        element[2] +
-                        '">' +
-                        element[0] +
-                        "</button>"
-                );
-            });
-        </script>
         <script src="script/others.js"></script>
+        <script src="script/languages.js"></script>
         <script src="script/pg_index.js"></script>
     </body>
 </html>

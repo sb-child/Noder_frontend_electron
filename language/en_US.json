@@ -1,0 +1,10 @@
+{
+    "login_connect": "Connect",
+    "login_to-collect": "Add to collection",
+    "login_collects": "Collection",
+    "login_clear-table": "Clear",
+    "login_srv-hostname": "backend hostname",
+    "login_srv-port": "port",
+    "login_input-srv-ip": "example:127.0.0.1",
+    "login_input-srv-port": "example:37321"
+}

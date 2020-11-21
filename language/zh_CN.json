@@ -1,0 +1,10 @@
+{
+    "login_connect": "连接",
+    "login_to-collect": "添加到收藏",
+    "login_collects": "收藏夹",
+    "login_clear-table": "清空",
+    "login_srv-hostname": "后端域名或IP地址",
+    "login_srv-port": "后端端口号",
+    "login_input-srv-ip": "例子:127.0.0.1",
+    "login_input-srv-port": "例子:37321"
+}
