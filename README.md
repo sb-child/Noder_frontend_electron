@@ -7,3 +7,6 @@ It is a Noder client.
 > - [ ] Redesign the user interface
 > - [x] Multi languages support
 > - [ ] Use `socket.io` to connect the backend
+
+**License**
+> GPL3
