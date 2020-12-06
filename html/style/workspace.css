@@ -1,141 +1,242 @@
+/* basic(基本设置) */
 * {
-    -webkit-user-drag: none;
+    padding: 0px;
+    margin: 0px;
 }
-.bg {
-    /* width: 100%;
-    height: 100%; */
-    background-color: #292929;
-    width: 100%;
-    height: 100%;
-    display: block;
-    position: fixed;
-}
-.menu_bar {
-    background-color: #474747;
-    position: fixed;
-    height: 30px;
-    width: 100%;
-    box-shadow: 0 0 5px #181818;
-}
-.menu_bar_icon {
-    width: 30px;
-    height: 30px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: local;
-    background-size: cover;
-    background-image: url(../image/noder_dark.png);
-    float: left;
-}
-.menu_bar_item {
-    display: inline-block;
-    font-size: medium;
-    height: 30px;
-    line-height: 30px;
-    padding: 0px 5px 0px;
-    background-color: #474747;
-    transition: all 0.3s;
-    color: #c7c7c7;
-    box-sizing: border-box;
-    border-bottom: 0px solid #c2e2ff00;
-}
-.menu_bar_item_active {
-    border-bottom: 1px solid #c2e2ff;
-}
-.menu_bar_item:hover {
-    background-color: #727272;
-}
-.menu_bar_user {
-    display: block;
-    width: 30px;
-    height: 30px;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: local;
-    background-size: cover;
-    float: right;
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    font-size: 25px;
-    text-align: center;
-    transition: all 0.3s;
-    background-color: #474747;
-    color: #c7c7c7;
-}
-.menu_bar_user:hover {
-    background-color: #727272;
-}
-.menu_bar_menu {
-    background-color: #5e5e5e;
-    /* box-shadow: 0 0 5px #181818; */
-    border: 1px solid#c2e2ff;
-    box-sizing: border-box;
-    position: fixed;
-    width: 100%;
-    height: 150px;
-    opacity: 100%;
-    pointer-events: all;
-    transition: all 0.3s;
-    padding: 10px;
-    border-radius: 0px 0px 5px 5px;
-    /* z-index: -1; */
-    opacity: 80%;
-    top: 30px;
+body {
     overflow: hidden;
 }
-.menu_bar_menu_hide {
-    opacity: 0%;
-    pointer-events: none;
-    height: 0px;
+body header {
+    background-color: var(--fileBarBackground);
+}
+/* top bar(顶栏) */
+.my_file {
+    display: flex;
+    float: left;
+    height: 100%;
+    width: calc(100% - 152px);
+    /* padding-right: 1px; */
+    overflow-x: scroll;
+    overflow-y: hidden;
+    /* overflow: scroll; */
+    scrollbar-width: none;
+}
+.my_file::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+}
+.my_file * {
+    transition: all 0.1s;
+    flex-shrink: 0;
+}
+.my_file .selected {
+    border-color: var(--fileBarSelectedLineColor);
+    background-color: var(--fileBarSelectedForeground);
+}
+.my_file_bar {
+    height: 35px;
+    width: 100%;
+    background-color: var(--fileBarBackground);
 }
 
-.menu_cell {
-    height: 80px;
-    width: calc(50% - 3px);
-    background-color: #56585a;
-    border: 1px solid#c2e2ff;
-    box-shadow: 0 0 3px #181818;
+.my_bar_button {
+    float: right;
+    height: 100%;
+    background-color: #00000000;
+    width: auto;
+    display: flex;
+}
+.my_file_item {
+    --h: calc(100% - var(--file_margin));
+    border: 1px solid var(--fileBarLineColor);
+    border-bottom: 0px;
     box-sizing: border-box;
-    border-radius: 5px;
-    padding: 5px;
+    height: var(--h);
+    width: auto;
+    margin-top: var(--file_margin);
+    min-width: 100px;
+    max-width: 300px;
+    text-overflow: clip;
+    overflow: hidden;
+    background-color: var(--fileBarForeground);
+    border-radius: 3px 3px 0px 0px;
+    margin-left: 1px;
+    display: flex;
+}
+.my_file_item p {
+    font-size: smaller;
+    color: #ffffff;
+    padding: 0px 6px 0px 6px;
+    margin: auto;
+    float: left;
+}
+.my_file_item .my_file_item_button {
+    background-image: var(--im-add);
+    width: 15px;
+    height: 15px;
+    margin: auto 8px auto 8px;
+    background-size: contain;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateZ(45deg);
+}
+.my_file_item_special {
+    --h: calc(100% - var(--file_margin));
+    border: 1px solid var(--fileBarSpecialLineColor);
+    border-bottom: 0px;
+    box-sizing: border-box;
+    height: var(--h);
+    width: auto;
+    margin-top: var(--file_margin);
+    text-overflow: clip;
+    overflow: hidden;
+    background-color: var(--fileBarSpecialForeground);
+    border-radius: 3px 3px 0px 0px;
+    margin-left: 1px;
+    display: flex;
+}
+.my_file_item_special p {
+    font-size: smaller;
+    color: #ffffff;
+    padding: 6px;
+    float: left;
+}
+.my_file_item_special .my_file_item_button {
+    background-image: var(--im-add);
+    width: 15px;
+    height: 15px;
+    margin: auto 8px auto 8px;
+    background-size: contain;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotateZ(45deg);
+}
+.my_file_item_special .my_add_button {
+    transform: rotateZ(0deg);
+}
+.my_bar_button .my_bar_item {
+    transition: all 0.1s;
+    height: 100%;
+    width: 50px;
+    border: 1px solid #eeeeee00;
+    box-sizing: border-box;
+}
+.my_bar_button .my_bar_item:hover {
+    border: 1px solid #eeeeee6e;
+    box-sizing: border-box;
+    background-color: #ffffff4f;
+}
+.my_bar_button .my_bar_item_red:hover {
+    border: 1px solid #ee91916e;
+    box-sizing: border-box;
+    background-color: #ff93934f;
+}
+.my_bar_item .button {
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.my_bar_item .min_button {
+    background-image: var(--im-min);
+}
+.my_bar_item .max_button {
+    background-image: var(--im-max);
+}
+.my_bar_item .close_button {
+    background-image: var(--im-add);
+    background-size: 20px 20px;
+    transform: rotateZ(45deg);
+}
+.my_bar_button .my_bar_split {
+    height: 100%;
+    width: 1px;
+    background-color: #bdbdbd;
+}
+.my_file_bar_scroll {
+    border: 1px solid #797979;
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 100%;
+    background-color: var(--fileBarBackground);
+    overflow: hidden;
+}
+.my_file_bar_scroll_hide {
+    height: 1px;
+}
+.my_file_bar_scroll_show {
+    height: 10px;
+}
+.an_0_3s {
+    transition: all 0.3s;
+}
+.my_file_bar_scroll .scroll_block {
+    height: 8px;
+    width: 50%;
+    background-color: #575757;
+    margin: auto 0px auto 0px;
+    margin-left: 0%;
+    border: 1px solid #d6d6d6;
+    box-sizing: border-box;
+    border-radius: 10px;
+    transition: all 0.1s;
+}
+.my_file_bar_scroll .scroll_block:hover {
+    background-color: #272727;
+}
+/* tool bar(工具栏) */
+.my_top_tool_bar {
+    height: 150px;
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+    display: flex;
+    flex-direction: column;
+}
+.my_top_tool {
+    display: flex;
+    float: left;
+    height: 30px;
+    width: 100%;
+    margin: 0px;
+    padding: 0px 2px 6px 2px;
+}
+.my_top_tool_item {
+    --h: calc(100% - var(--file_margin));
+    border: 1px solid #c2c2c2;
+    border-radius: 30px;
+    box-sizing: border-box;
+    height: var(--h);
+    width: auto;
+    min-width: 50px;
+    max-width: 300px;
+    text-overflow: clip;
+    overflow: hidden;
+    background-color: #131313;
+    display: flex;
+    padding: 0px 3px 0px 3px;
+    margin: 4px 0px 0px 4px;
+}
+.my_top_tool_item p {
+    font-size: smaller;
+    color: #ffffff;
+    padding: 0px 3px 0px 3px;
+    float: left;
+    margin: auto;
+}
+.my_top_tool_bar .my_bar_split {
+    width: 100%;
+    height: 1px;
+    background-color: #555555;
+}
+/* file window(文档窗口) */
+.file_window {
+    width: 100%;
+    height: 100%;
+    background-color: #2b2b2b;
     display: block;
-    margin-bottom: 5px;
-    text-align: justify;
-    text-justify: newspaper;
-    word-break: break-all;
-    transition: all 0.3s;
-}
-.menu_cell:hover {
-    background-color: #333638;
-}
-.menu_cell dt {
-    text-align: center;
-    color: #f0daff;
-}
-.menu_cell dt span {
-    color: #dbe4ff;
-}
-.menu_cell dd {
-    text-align: center;
-    line-height: 15pt;
-    color: #beb0c7;
-}
-.menu_cell_hide {
-    visibility: hidden;
-}
-.workspace {
-    width: 100%;
-    height: 100%;
-    margin-top: 30px;
-    padding: 3px;
-    position: initial;
-}
-.menu_bar_menu_mask {
-    width: 100%;
-    height: 100%;
     position: fixed;
-    background-color: #00000045;
-    transition: all 0.3s;
-    z-index: -2;
 }

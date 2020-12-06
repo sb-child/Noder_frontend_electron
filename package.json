@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@neos21/bootstrap3-glyphicons": "^1.0.4",
+    "@types/jquery": "^3.5.4",
     "bootstrap": "^4.5.3",
     "element-resize-detector": "^1.2.1",
     "jquery": "^3.5.1",

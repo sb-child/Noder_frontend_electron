@@ -1,0 +1,14 @@
+:root {
+    --file_margin: 2px;
+    --fileBarBackground: #141414;
+    --fileBarForeground: #2b2b2b;
+    --fileBarLineColor: #c2c2c2;
+    --fileBarSpecialLineColor: #80b8ce;
+    --fileBarSpecialForeground: #323546;
+    --fileBarSelectedLineColor: #94dd9a;
+    --fileBarSelectedForeground: #2c4130;
+    --im-add: url(../image/add.svg);
+    --im-max: url(../image/max.svg);
+    --im-max2: url(../image/max2.svg);
+    --im-min: url(../image/min.svg);
+}

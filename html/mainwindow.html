@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Noder</title>
+        <link
+            href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="../node_modules/@neos21/bootstrap3-glyphicons/dist/css/bootstrap3-glyphicons.css"
+            rel="stylesheet"
+        />
+        <link
+            href="../node_modules/bootstrap/dist/css/bootstrap-grid.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
+            rel="stylesheet"
+        />
+        <link href="style/workspace.css" rel="stylesheet" />
+        <link href="style/global.css" rel="stylesheet" />
+    </head>
+    <body id="body" onselectstart="return false">
+        <header>
+            <div class="my_file_bar" id="my_top_bar">
+                <div class="my_file" id="my_top_scroll1_target">
+                    <div class="my_file_item_special">
+                        <p>开始</p>
+                    </div>
+                    <div class="my_file_item_special">
+                        <div class="my_file_item_button my_add_button"></div>
+                    </div>
+                    <div class="my_file_item">
+                        <p>file1.nd</p>
+                        <div class="my_file_item_button"></div>
+                    </div>
+                    <div class="my_file_item selected">
+                        <p>fi5656563le2.nd</p>
+                        <div class="my_file_item_button"></div>
+                    </div>
+                    <div class="my_file_item">
+                        <p>fi56565dd63le2.nd</p>
+                        <div class="my_file_item_button"></div>
+                    </div>
+                    <div class="my_file_item">
+                        <p>fi56563le2.nd</p>
+                        <div class="my_file_item_button"></div>
+                    </div>
+                    <div class="my_file_item">
+                        <p>fi565ssa6563le2.nd</p>
+                        <div class="my_file_item_button"></div>
+                    </div>
+                </div>
+                <div class="my_bar_button">
+                    <div class="my_bar_split"></div>
+                    <div class="my_bar_item">
+                        <div class="button min_button"></div>
+                    </div>
+                    <div class="my_bar_item">
+                        <div class="button max_button"></div>
+                    </div>
+                    <div class="my_bar_item my_bar_item_red">
+                        <div class="button close_button"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="my_file_bar_scroll an_0_3s" id="my_top_scroll1">
+                <div class="scroll_block" id="my_top_scroll1_block"></div>
+            </div>
+            <div class="my_top_tool_bar">
+                <div class="my_top_tool">
+                    <div class="my_top_tool_item">
+                        <p>文件</p>
+                    </div>
+                    <div class="my_top_tool_item">
+                        <p>test</p>
+                    </div>
+                    <div class="my_top_tool_item">
+                        <p>tes1t</p>
+                    </div>
+                    <div class="my_top_tool_item">
+                        <p>tes881t</p>
+                    </div>
+                </div>
+                <div class="my_bar_split"></div>
+                <div class="my_top_tool_items"></div>
+            </div>
+        </header>
+        <main>
+            <div class="file_window">234567ui</div>
+        </main>
+        <footer></footer>
+        <script>
+            if (typeof module === "object") {
+                window.module = module;
+                module = undefined;
+            }
+        </script>
+        <script>
+            require("popper.js");
+            window.$ = window.jQuery = require("jquery");
+            require("bootstrap");
+        </script>
+        <script>
+            if (window.module) module = window.module;
+        </script>
+        <script src="script/ui.js"></script>
+        <script src="script/others.js"></script>
+        <script src="script/workspace.js"></script>
+    </body>
+</html>

@@ -1,198 +1,69 @@
-var toolbar_items = [];
-var _last_menu_cmds = [];
-var bar_menu_index = -1;
-/**
- *
- * @param {array} a
- */
-function set_tbar_items(a) {
-    toolbar_items = [];
-    a.forEach((element, i) => {
-        $("#menu_bar_items").html(
-            $("#menu_bar_items").html() +
-                '<div class="menu_bar_item" id="menu_bar_item_' +
-                i +
-                '">' +
-                element +
-                "</div>"
-        );
-        toolbar_items.push([element, i]);
-    });
-}
-function tbar_menu_items_click(nbar, index) {
-    // console.log([nbar, index]);
-    switch (bar_menu_index) {
-        case 0:
-            switch (index) {
-                case 0:
-                    break;
-                case 1:
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                case 5:
-                    const ele = require("electron");
-                    ele.app.quit();
-                    break;
-
-                default:
-                    break;
-            }
-            break;
-
-        default:
-            break;
-    }
-}
-function set_tbar_menu_items(a) {
-    if (!a.equals(_last_menu_cmds)) {
-        _last_menu_cmds = cloneArr(a);
-    } else {
-        return;
-    }
-    count = a.length; // % 2 == 0 ? a.length : a.length + 1;
-    $("#menu_bar_menu").html("");
-    for (let index = 0; index < count; index++) {
-        // if (index + 1 > a.length) {
-        //     break;
-        // }
-        $("#menu_bar_menu").html(
-            $("#menu_bar_menu").html() +
-                ('<div class="menu_cell menu_cell_' +
-                    (index % 2 == 0 ? "left" : "right") +
-                    '" id="menu_cell_id_' +
-                    index +
-                    '"><dl><dt><span class="glyphicon ' +
-                    a[index][2] +
-                    '"></span> ' +
-                    a[index][0] +
-                    "</dt><dd>" +
-                    a[index][1] +
-                    "</dd></dl></div>")
-        );
-    }
-    for (let index = 0; index < count; index++) {
-        // console.log("#menu_cell_id_" + index);
-        $("#menu_cell_id_" + index).on("click", (jq) => {
-            tbar_menu_items_click(bar_menu_index, index);
-        });
-    }
-}
-function set_tbar_mask_status(t) {
-    switch (t) {
-        case "show":
-            jq_replace_class(
-                $("#menu_bar_menu_mask"),
-                "menu_bar_menu_hide",
-                ""
-            );
-            break;
-        case "hide":
-            jq_replace_class(
-                $("#menu_bar_menu_mask"),
-                "",
-                "menu_bar_menu_hide"
-            );
-            break;
-        default:
-            break;
-    }
-}
-function update_menu() {
-    m = $("#menu_bar_menu");
-    toolbar_items.forEach((e) => {
-        ee = $("#menu_bar_item_" + e[1]);
-        if (e[1] == bar_menu_index) {
-            ee.addClass("menu_bar_item_active");
-        } else {
-            ee.removeClass("menu_bar_item_active");
-        }
-    });
-    if (bar_menu_index != -1) {
-        if (bar_menu_index + 1 > toolbar_items.length) {
-            bar_menu_index = -1;
-            return;
-        }
-        set_tbar_menu_items(ui_toolbar_menu_cmds[bar_menu_index]);
-        var bd = $("#bg")[0];
-        var w = bd.clientWidth;
-        // left = $("#menu_bar_item_" + bar_menu_index)[0].offsetLeft;
-        // width = m[0].offsetWidth;
-        // if (width + left + 5 > w) {
-        //     m.css("left", w - width - 5);
-        // } else {
-        //     m.css("left", left);
-        // }
-        // m.css("top", 30);
-        jq_replace_class(m, "menu_bar_menu_hide", "");
-        set_tbar_mask_status("show");
-    } else {
-        jq_replace_class(m, "", "menu_bar_menu_hide");
-        set_tbar_mask_status("hide");
-    }
-}
 $(() => {
+    // electron and jquery
     const { remote } = require("electron");
+    window.$ = window.jQuery = require("jquery");
     thiswd = remote.getCurrentWindow();
     thiswd.resizable = true;
 
-    set_tbar_items(ui_toolbar_items);
-    update_menu();
-    var timer = setInterval(() => {
-        update_menu();
-    }, 200);
-    _bar_close_time = 0;
-    _bar_autoclose = false;
-    var timer1 = setInterval(() => {
-        if (!_bar_autoclose) {
-            return;
-        }
-        if (_bar_close_time > 0) {
-            _bar_close_time -= 1;
+    var myscroll1 = $("#my_top_scroll1");
+    var mytopbar = $("#my_top_bar");
+    var myscroll1block = $("#my_top_scroll1_block");
+    var myscroll1target = document.getElementById("my_top_scroll1_target");
+    window.onresize = () => {
+        s1max = myscroll1target.scrollWidth;
+        s1 = myscroll1target.scrollLeft;
+        s1width = $(myscroll1target).innerWidth();
+        s1barwidth = myscroll1.innerWidth();
+        console.log(s1max);
+        if (s1max == 0) {
+            jq_replace_class(
+                myscroll1,
+                "my_file_bar_scroll_show",
+                "my_file_bar_scroll_hide"
+            );
         } else {
-            if (bar_menu_index != -1) {
-                bar_menu_index = -1;
-                _bar_autoclose = false;
-            }
+            jq_replace_class(
+                myscroll1,
+                "my_file_bar_scroll_hide",
+                "my_file_bar_scroll_show"
+            );
+            _temp_barwidth = ((s1width - s1max) / s1width) * s1barwidth;
+            _temp_barwidth = _temp_barwidth <= 20 ? 20 : _temp_barwidth;
+            myscroll1block.css("width", _temp_barwidth.toString() + "px");
+            _temp1 = s1width - _temp_barwidth + 147;
+            myscroll1block.css(
+                "margin-left",
+                ((s1 / s1max) * _temp1).toString() + "px"
+            );
         }
-    }, 100);
-    $(".menu_bar_item").on("click mouseover", (jq) => {
-        index = /menu_bar_item_([0-9]+)/.exec(jq.target.id)[1];
-        index = Number(index);
-        switch (jq.type) {
-            case "click":
-                bar_menu_index = bar_menu_index == -1 ? index : -1;
-                update_menu();
-                _bar_autoclose = false;
-                break;
-            case "mouseover":
-                if (bar_menu_index != -1) {
-                    bar_menu_index = index;
-                    update_menu();
-                    _bar_autoclose = false;
-                }
-                break;
-            default:
-                break;
+    };
+    window.onresize();
+    $(myscroll1target).on("scroll", () => {
+        window.onresize();
+    });
+    myscroll1.on("mousemove", (e) => {
+        if (e.originalEvent.buttons == 1) {
+            // console.log(e);
+            s1max = myscroll1target.scrollWidth;
+            s1width = $(myscroll1target).innerWidth() + s1max;
+            s1barwidth = myscroll1.innerWidth();
+            s1topbarwidth = mytopbar.innerWidth() - 151;
+            _r = (e.originalEvent.layerX / s1barwidth) * s1max;
+            // movementX
+            console.log(s1width, s1topbarwidth);
+            myscroll1target.scrollLeft = _r;
         }
     });
-
-    $("#menu_bar_menu").on("mouseover", (jq) => {
-        _bar_autoclose = false;
-    });
-    $("#menu_bar_menu").on("mouseleave", (jq) => {
-        _bar_close_time = 5;
-        _bar_autoclose = true;
-    });
-    $("#menu_bar_menu_mask").on("click", (e) => {
-        e.preventDefault();
-        bar_menu_index = -1;
-        update_menu();
-        _bar_autoclose = false;
-        set_tbar_mask_status("hide");
+    myscroll1.on("click", (e) => {
+        console.log(e.originalEvent.buttons);
+        if (e.originalEvent.buttons == 4) {
+            s1max = myscroll1target.scrollWidth;
+            s1width = $(myscroll1target).innerWidth() + s1max;
+            s1barwidth = myscroll1.innerWidth();
+            s1topbarwidth = mytopbar.innerWidth() - 151;
+            _r = (e.originalEvent.layerX / s1barwidth) * s1max;
+            console.log(s1width, s1topbarwidth);
+            myscroll1target.scrollLeft = _r;
+        }
     });
 });

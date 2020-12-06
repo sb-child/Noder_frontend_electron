@@ -17,7 +17,7 @@ function createWindow() {
     });
     // win.title = "Noder Client"
     win.setMenu(null);
-    win.loadFile("html/index.html");
+    win.loadFile("html/mainwindow.html");
     // win.loadFile("html/workspace.html");
     win.webContents.openDevTools();
 }
