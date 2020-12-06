@@ -11,18 +11,18 @@
   "author": "sbchild",
   "license": "GPL-3.0-or-later",
   "devDependencies": {
-    "@types/jsonfile": "^6.0.0",
-    "electron": "^11.0.1"
+    "@types/jsonfile": "^6.0.0"
   },
   "dependencies": {
-    "@neos21/bootstrap3-glyphicons": "^1.0.4",
+    "@neos21/bootstrap3-glyphicons": "^1.0.7",
     "@types/jquery": "^3.5.4",
     "bootstrap": "^4.5.3",
+    "electron": "^11.0.3",
     "element-resize-detector": "^1.2.1",
     "jquery": "^3.5.1",
     "jsonfile": "^6.1.0",
     "popper.js": "^1.16.1",
-    "socket.io": "^3.0.2",
+    "socket.io": "^3.0.3",
     "socket.io-client": "^3.0.3"
   }
 }
