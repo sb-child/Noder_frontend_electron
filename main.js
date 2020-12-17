@@ -1,5 +1,6 @@
 const { app, BrowserWindow } = require("electron");
-const io = require("socket.io-client");
+// const io = require('socket.io-client');
+// const { Manager } = require("socket.io-client");
 const lang = require("./language/lang")
 
 
@@ -15,14 +16,17 @@ function createWindow() {
         minWidth: 100,
         center: true,
     });
-    // win.title = "Noder Client"
     win.setMenu(null);
     win.loadFile("html/mainwindow.html");
-    // win.loadFile("html/workspace.html");
     win.webContents.openDevTools();
 }
 
-var cli = undefined;
+// var cli = io("ws://", {
+//     reconnectionDelayMax: 5000,
+//     query: {
+//         auth: "123",
+//     },
+// });
 var nowLang = "zh_CN";
 
 app.whenReady().then(createWindow);
@@ -51,6 +55,9 @@ const getLang = (lang_index) => {
 const getLangList = () => {
     return lang.getLangNames();
 };
+const connect1 = (host, port) => {
+    
+}
 
 app._io_lang_SetLang = setLang;
 app._io_lang_GetNowLang = getNowLang;

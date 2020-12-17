@@ -97,6 +97,7 @@ function connect_to_server(ip, port) {
     };
 }
 $(function () {
+    return;
     // --- import and config ---
     var elementResizeDetectorMaker = require("element-resize-detector");
     const { remote } = require("electron");
