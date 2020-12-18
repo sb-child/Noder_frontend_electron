@@ -21,23 +21,34 @@
             href="../node_modules/bootstrap/dist/css/bootstrap-reboot.min.css"
             rel="stylesheet"
         />
+        <link
+            href="../node_modules/jquery-ui-dist/jquery-ui.css"
+            rel="stylesheet"
+        />
         <link href="style/workspace.css" rel="stylesheet" />
         <link href="style/global.css" rel="stylesheet" />
     </head>
     <body id="body" onselectstart="return false">
         <div class="d-flex flex-column bg">
             <div class="d-flex flex-row flex-fill">
-                <div region="west" class="n_sidebar" style="width: 140px">
-                西
+                <div region="west" class="n_sidebar" style="width: 240px">
+                    <div class="n_left_iconbar d-flex flex-column">
+                        <div class="workspaces"></div>
+                        <div class="server"></div>
+                        <div class="server mt-auto"></div>
+                    </div>
+                </div>
+                <div region="center" class="flex-fill">
+                    <div region="north" class="n_topbar" style="height: 140px">
+                        北
+                    </div>
+                    <div region="center" class="flex-fill">中</div>
+                </div>
             </div>
-            <div region="center" class="flex-fill">
-                <div region="north" class="n_topbar" style="height: 80px">北</div>
-                <div region="center" class="flex-fill">中</div>
+            <div region="south" class="n_bottombar">
+                ---
             </div>
-            </div>
-            <div region="south" class="n_bottombar" style="height: 30px">---</div>
         </div>
-        
     </body>
     <script>
         if (typeof module === "object") {
@@ -48,6 +59,7 @@
     <script>
         require("popper.js");
         window.$ = window.jQuery = require("jquery");
+        require("jquery-ui-dist/jquery-ui");
         require("bootstrap");
     </script>
     <script>

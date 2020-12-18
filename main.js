@@ -14,8 +14,8 @@ function createWindow() {
             enableRemoteModule: true,
             nodeIntegration: true
         },
-        minHeight: 100,
-        minWidth: 100,
+        minWidth: 800,
+        minHeight: 600,
         center: true,
     });
     win.setMenu(null);
@@ -51,9 +51,13 @@ const getLangList = () => {
 const connect1 = (host, port, cb) => {
     ndapi.connect(host, port, cb);
 };
+const connTargetInfo = () => {
+    return ndapi.getTarget();
+};
 
 app._io_lang_SetLang = setLang;
 app._io_lang_GetNowLang = getNowLang;
 app._io_lang_GetLang = getLang;
 app._io_lang_GetLangList = getLangList;
 app._io_connect1 = connect1;
+app._io_conn_target_info = connTargetInfo;

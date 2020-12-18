@@ -52,6 +52,12 @@ var NdApi = /** @class */ (function () {
             }
         });
     };
+    NdApi.prototype.getTarget = function () {
+        return [this.wsHost, this.wsPort];
+    };
+    NdApi.prototype.getConnectStatus = function () {
+        return this.isConnected;
+    };
     NdApi.prototype.auth = function () {
         if (!this.isConnected) {
         }

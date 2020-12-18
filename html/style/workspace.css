@@ -16,12 +16,37 @@ body {
     /* border: 2px solid #ae00e6; */
     position: fixed;
 }
-.n_sidebar{
-    background-color: #6d9ab8;
+.n_sidebar {
+    background-color: #4e4e5f;
 }
-.n_topbar{
+.n_topbar {
     background-color: #6db87a;
 }
-.n_bottombar{
-    background-color: #8a88ee;
+.n_bottombar {
+    background-color: #3072d6;
+    height: 25px;
+    font-size: small;
+    color: #ffffff;
+    line-height: 25px;
+    padding: 0px 5px;
+}
+.n_left_iconbar {
+    height: 100%;
+    width: 60px;
+    background-color: #22222f;
+}
+.n_left_iconbar div {
+    height: 50px;
+    width: 50px;
+    margin: 3px auto 3px auto;
+    background-size: 50px 50px;
+    background-color: #ffffff10;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+}
+.n_left_iconbar .server {
+    background-image: url(../image/server.svg);
+}
+.n_left_iconbar .workspaces {
+    background-image: url(../image/workspaces.svg);
 }

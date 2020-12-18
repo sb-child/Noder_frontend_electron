@@ -21,6 +21,8 @@
     "electron": "^11.1.0",
     "element-resize-detector": "^1.2.1",
     "jquery": "^3.5.1",
+    "jquery-ui": "^1.12.1",
+    "jquery-ui-dist": "^1.12.1",
     "jsonfile": "^6.1.0",
     "popper.js": "^1.16.1",
     "socket.io": "^3.0.4",

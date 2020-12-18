@@ -56,6 +56,12 @@ export class NdApi {
             }
         });
     }
+    getTarget() {
+        return [this.wsHost, this.wsPort];
+    }
+    getConnectStatus() {
+        return this.isConnected;
+    }
     auth() {
         if (!this.isConnected) {
         }

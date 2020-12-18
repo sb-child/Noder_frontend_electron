@@ -9,4 +9,5 @@ It is a Noder client.
 > - [x] Use `socket.io` to connect the backend
 
 **License**
-> GPL3
+> GPL3  
+> some svg files are from `iconfont.cn`

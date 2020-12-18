@@ -5,8 +5,33 @@ $(() => {
     thiswd = remote.getCurrentWindow();
     thiswd.resizable = true;
     remote.app._io_connect1("127.0.0.1", 37321, (a, b) => {
-        $(".n_bottombar").text("status:" + a);
+        $(".n_bottombar").text(
+            "status:" + a + ", " + remote.app._io_conn_target_info()
+        );
         console.log([a, b]);
+    });
+
+    $(".n_sidebar").resizable({
+        handles: "e",
+        maxWidth: 500,
+        minWidth: 60,
+        resize: function (event, ui) {
+            // console.log([event, ui]);
+            // $("#middle").width(
+            //     $("#content").width() - ui.size.width - $("#right").width()
+            // );
+        },
+    });
+    $(".n_topbar").resizable({
+        handles: "s",
+        maxHeight: 300,
+        minHeight: 60,
+        resize: function (event, ui) {
+            // console.log([event, ui]);
+            // $("#middle").width(
+            //     $("#content").width() - ui.size.width - $("#right").width()
+            // );
+        },
     });
     return;
     var myscroll1 = $("#my_top_scroll1");
