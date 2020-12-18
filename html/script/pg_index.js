@@ -97,6 +97,10 @@ function connect_to_server(ip, port) {
     };
 }
 $(function () {
+    const { remote } = require("electron");
+    remote.app._io_connect1("127.0.0.1", 37321, (a, b) => {
+        console.log([a, b]);
+    });
     return;
     // --- import and config ---
     var elementResizeDetectorMaker = require("element-resize-detector");

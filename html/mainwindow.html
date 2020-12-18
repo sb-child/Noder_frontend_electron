@@ -4,7 +4,7 @@
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Noder</title>
+        <title>客户端</title>
         <link
             href="../node_modules/bootstrap/dist/css/bootstrap.min.css"
             rel="stylesheet"
@@ -25,25 +25,35 @@
         <link href="style/global.css" rel="stylesheet" />
     </head>
     <body id="body" onselectstart="return false">
-        <div class="leftBar">
-
+        <div class="d-flex flex-column bg">
+            <div class="d-flex flex-row flex-fill">
+                <div region="west" class="n_sidebar" style="width: 140px">
+                西
+            </div>
+            <div region="center" class="flex-fill">
+                <div region="north" class="n_topbar" style="height: 80px">北</div>
+                <div region="center" class="flex-fill">中</div>
+            </div>
+            </div>
+            <div region="south" class="n_bottombar" style="height: 30px">---</div>
         </div>
-        <script>
-            if (typeof module === "object") {
-                window.module = module;
-                module = undefined;
-            }
-        </script>
-        <script>
-            require("popper.js");
-            window.$ = window.jQuery = require("jquery");
-            require("bootstrap");
-        </script>
-        <script>
-            if (window.module) module = window.module;
-        </script>
-        <script src="script/ui.js"></script>
-        <script src="script/others.js"></script>
-        <script src="script/workspace.js"></script>
+        
     </body>
+    <script>
+        if (typeof module === "object") {
+            window.module = module;
+            module = undefined;
+        }
+    </script>
+    <script>
+        require("popper.js");
+        window.$ = window.jQuery = require("jquery");
+        require("bootstrap");
+    </script>
+    <script>
+        if (window.module) module = window.module;
+    </script>
+    <script src="script/ui.js"></script>
+    <script src="script/others.js"></script>
+    <script src="script/workspace.js"></script>
 </html>

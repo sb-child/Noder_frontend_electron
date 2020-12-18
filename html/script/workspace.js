@@ -4,7 +4,11 @@ $(() => {
     window.$ = window.jQuery = require("jquery");
     thiswd = remote.getCurrentWindow();
     thiswd.resizable = true;
-
+    remote.app._io_connect1("127.0.0.1", 37321, (a, b) => {
+        $(".n_bottombar").text("status:" + a);
+        console.log([a, b]);
+    });
+    return;
     var myscroll1 = $("#my_top_scroll1");
     var mytopbar = $("#my_top_bar");
     var myscroll1block = $("#my_top_scroll1_block");
