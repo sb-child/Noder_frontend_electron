@@ -10,4 +10,3 @@ It is a Noder client.
 
 **License**
 > GPL3  
-> some svg files are from `iconfont.cn`

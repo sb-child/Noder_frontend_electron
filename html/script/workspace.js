@@ -14,7 +14,7 @@ $(() => {
     $(".n_sidebar").resizable({
         handles: "e",
         maxWidth: 500,
-        minWidth: 60,
+        minWidth: 50,
         resize: function (event, ui) {
             // console.log([event, ui]);
             // $("#middle").width(
