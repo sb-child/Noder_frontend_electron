@@ -22,7 +22,7 @@ $(() => {
             // );
         },
     });
-    $(".n_topbar").resizable({
+    $(".n_topbar_area").resizable({
         handles: "s",
         maxHeight: 300,
         minHeight: 60,
